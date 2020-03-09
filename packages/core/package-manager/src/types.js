@@ -27,12 +27,12 @@ export interface PackageManager {
   require(
     id: ModuleSpecifier,
     from: FilePath,
-    ?{|range?: SemverRange, autoInstall?: boolean|},
+    ?{|range?: SemverRange, autoinstall?: boolean|},
   ): Promise<any>;
   resolve(
     id: ModuleSpecifier,
     from: FilePath,
-    ?{|range?: SemverRange, autoInstall?: boolean|},
+    ?{|range?: SemverRange, autoinstall?: boolean|},
   ): Promise<ResolveResult>;
 }
 

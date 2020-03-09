@@ -54,7 +54,7 @@ export class NodePackageManager implements PackageManager {
   async require(
     name: ModuleSpecifier,
     from: FilePath,
-    opts: ?{|range?: SemverRange, autoInstall?: boolean|},
+    opts: ?{|range?: SemverRange, autoinstall?: boolean|},
   ) {
     let {resolved} = await this.resolve(name, from, opts);
     return this.load(resolved, from);
@@ -108,7 +108,7 @@ export class NodePackageManager implements PackageManager {
   async resolve(
     name: ModuleSpecifier,
     from: FilePath,
-    options?: ?{|range?: string, autoInstall?: boolean|},
+    options?: ?{|range?: string, autoinstall?: boolean|},
   ) {
     let basedir = dirname(from);
     let key = basedir + ':' + name;
@@ -120,7 +120,7 @@ export class NodePackageManager implements PackageManager {
           extensions: Object.keys(Module._extensions),
         });
       } catch (e) {
-        if (e.code !== 'MODULE_NOT_FOUND' || options?.autoInstall === false) {
+        if (e.code !== 'MODULE_NOT_FOUND' || options?.autoinstall === false) {
           throw e;
         }
 
@@ -134,7 +134,7 @@ export class NodePackageManager implements PackageManager {
           await this.install([{name, range: options?.range}], from);
           return this.resolve(name, from, {
             ...options,
-            autoInstall: false,
+            autoinstall: false,
           });
         }
 
@@ -168,11 +168,11 @@ export class NodePackageManager implements PackageManager {
             this.fs,
           );
 
-          if (conflicts == null && options?.autoInstall !== false) {
+          if (conflicts == null && options?.autoinstall !== false) {
             await this.install([{name, range}], from);
             return this.resolve(name, from, {
               ...options,
-              autoInstall: false,
+              autoinstall: false,
             });
           } else if (conflicts != null) {
             throw new ThrowableDiagnostic({
