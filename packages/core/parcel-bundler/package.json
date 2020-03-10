@@ -1,12 +1,12 @@
 {
-  "name": "parcel-bundler",
-  "version": "1.12.4",
+  "name": "@dialpad/parcel-bundler",
+  "version": "1.12.5",
   "description": "Blazing fast, zero configuration web application bundler",
   "main": "index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/parcel-bundler/parcel.git"
+    "url": "git+https://github.com/parcel-bundler/parcel.git"
   },
   "files": [
     "bin/",
@@ -153,5 +153,13 @@
   "collective": {
     "type": "opencollective",
     "url": "https://opencollective.com/parcel"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/parcel-bundler/parcel/issues"
+  },
+  "homepage": "https://github.com/parcel-bundler/parcel#readme",
+  "directories": {
+    "test": "test"
+  },
+  "author": ""
 }
